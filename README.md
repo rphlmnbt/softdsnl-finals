@@ -363,6 +363,45 @@ if __name__ == "__main__":
 
 ---
 
+## Django Setup
+
+### Create the Django Project (if not yet created)
+
+If you haven't set up the base project folder yet:
+
+```bash
+django-admin startproject flickr8k_backend .
+```
+
+> The `.` ensures it creates files in the current directory instead of a subfolder.
+
+---
+
+### Create the Django Apps
+
+```bash
+python manage.py startapp image_caption
+python manage.py startapp sentiment
+```
+
+Then open `flickr8k_backend/settings.py` and **add both apps** to `INSTALLED_APPS`:
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'image_caption',
+    'sentiment',
+]
+```
+
+---
+
 ## File: flickr8k_backend/image_caption/utils/preprocess.py
 ```python
 """
